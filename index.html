@@ -29,5 +29,24 @@
     <h1>IndieWeb Movie Club</h1>
     <p>Exclusively on the internet</p>
     <a href="https://indieweb.org/IndieWeb_Movie_Club">Get Involved</a>
+
+
+        <script>
+        const pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let current = 0;
+        const audio = new Audio('https://archive.org/download/tvtunes_9182/Pearl%20and%20Dean%20-%201970s.mp3');
+        const keyHandler = function (event) {
+            if (pattern.indexOf(event.key) < 0 || event.key !== pattern[current]) {
+                current = 0;
+                return;
+            }
+            current++;
+            if (pattern.length === current) {
+                current = 0;
+                audio.play();
+            }
+        };
+        document.addEventListener('keydown', keyHandler, false);
+    </script>
   </body>
 </html>
